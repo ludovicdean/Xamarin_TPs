@@ -30,13 +30,14 @@
                 <Switch x:Name="memoriserInfos" HorizontalOptions="Start" IsToggled="True"/>
                 <Label Text="Mémoriser mes informations" VerticalTextAlignment="Center"/>
             </StackLayout>
-            <Button Text="Se connecter"/>
+            <Button x:Name="seConnecter" Text="Se connecter"/>
 
         </StackLayout>
 
         <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout VerticalOptions="FillAndExpand" 
                          Orientation="Vertical">
+                
                 <StackLayout VerticalOptions="Fill" 
                              Orientation="Horizontal" 
                              Padding="10">
@@ -54,6 +55,7 @@
                         <Label Grid.Column="1" Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
                     </Grid>
                 </StackLayout>
+                
                 <StackLayout VerticalOptions="Fill" 
                              HorizontalOptions="FillAndExpand" 
                              Orientation="Horizontal" 
@@ -65,7 +67,9 @@
                     <ImageButton Source="favorite.png" WidthRequest="25" 
                            HorizontalOptions="EndAndExpand" />
                 </StackLayout>
+                
             </StackLayout>
+            
         </ScrollView>
 
 
@@ -84,6 +88,7 @@
                HorizontalOptions="EndAndExpand" 
                VerticalTextAlignment="Center"/>
         </StackLayout>
+        
     </StackLayout>
 
 </ContentPage>
