@@ -20,38 +20,16 @@ namespace TP_1.services
 
         public List<Tweet> GetTweets()
         {
-            List<Tweet> tweets = null;
-            Tweet tweet1 = new Tweet();
-            tweet1.Identifiant = "1";
-            tweet1.DateCreation = DateTime.Now;
-            tweet1.Texte = "Bonjour tout le monde !";
-            tweet1.NomUtilisateur = "Ludo";
-            tweet1.IdentifiantUtilisateur = "1";
-            tweet1.PseudoUtilisateur = "Lulu";
+            var tweets = new List<Tweet>();
 
-            tweets.Add(tweet1);
+            tweets.Add(new Tweet() { Identifiant = "1", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Ludo", IdentifiantUtilisateur = "1", PseudoUtilisateur = "Lulu" });
+            tweets.Add(new Tweet() { Identifiant = "2", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Caro", IdentifiantUtilisateur = "2", PseudoUtilisateur = "Caro" });
+            tweets.Add(new Tweet() { Identifiant = "2", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Nicolas", IdentifiantUtilisateur = "3", PseudoUtilisateur = "Nico" });
+            tweets.Add(new Tweet() { Identifiant = "2", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Marine", IdentifiantUtilisateur = "4", PseudoUtilisateur = "Mimie" });
+            tweets.Add(new Tweet() { Identifiant = "2", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Jérémy", IdentifiantUtilisateur = "5", PseudoUtilisateur = "Jérem" });
+            tweets.Add(new Tweet() { Identifiant = "2", DateCreation = DateTime.Now, Texte = "Bonjour tout le monde !", NomUtilisateur = "Baptiste", IdentifiantUtilisateur = "6", PseudoUtilisateur = "Baptistou" });
 
-            Tweet tweet2 = new Tweet();
-            tweet1.Identifiant = "2";
-            tweet1.DateCreation = DateTime.Now;
-            tweet1.Texte = "Bonjour tout le monde !";
-            tweet1.NomUtilisateur = "Caro";
-            tweet1.IdentifiantUtilisateur = "2";
-            tweet1.PseudoUtilisateur = "Caro";
-
-            tweets.Add(tweet2);
-
-            Tweet tweet3 = new Tweet();
-            tweet1.Identifiant = "3";
-            tweet1.DateCreation = DateTime.Now;
-            tweet1.Texte = "Bonjour tout le monde !";
-            tweet1.NomUtilisateur = "Nicolas";
-            tweet1.IdentifiantUtilisateur = "3";
-            tweet1.PseudoUtilisateur = "Nico";
-
-            tweets.Add(tweet3);
-
-            return tweets
+            return tweets;
         }
     }
 }

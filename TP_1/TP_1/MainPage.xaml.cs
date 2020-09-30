@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TP_1.services;
 using Xamarin.Forms;
 
 namespace TP_1
@@ -13,6 +15,10 @@ namespace TP_1
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        //-------------------------------------------------------------------------------------------------------
+        //Ajout d'un service
+        private ITwitterService twitterService = new TwitterService();
+        //-------------------------------------------------------------------------------------------------------
         public MainPage()
         {
             InitializeComponent();
@@ -21,15 +27,16 @@ namespace TP_1
 
         private void SeConnecterBtn_Clicked(object sender, EventArgs e)
         {
-            System.Console.WriteLine("Coucou");
-
             Boolean result = true;
             String login = this.identifiant.Text;
             String password = this.motDePasse.Text;
             Boolean isRemind = this.memoriserInfos.IsToggled;
-
             bool haveError = false;
             StringBuilder stringBuilder = new StringBuilder();
+
+            Debug.WriteLine("Coucou");
+
+            
 
             if (String.IsNullOrEmpty(login) || login.Length < 3)
             {
@@ -59,6 +66,13 @@ namespace TP_1
                 this.ConnexionForm.IsVisible = false;
                 this.Tweets.IsVisible = true;
             }
+            //-------------------------------------------------------------------------------------------------------
+            if(this.twitterService.Authenticate(login, password))
+            {
+                this.ConnexionForm.IsVisible = false;
+                this.Tweets.IsVisible = true;
+            }
+            //-------------------------------------------------------------------------------------------------------
             //throw new NotImplementedException();
         }
 
