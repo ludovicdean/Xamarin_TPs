@@ -20,21 +20,25 @@
             <ImageButton Source="search.png"  WidthRequest="25"
                HorizontalOptions="EndAndExpand" />
         </StackLayout>
+        
         <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
         <Label Text="Connexion à Twitter"></Label>
         </StackLayout>
-        <StackLayout Orientation="Vertical">
+        <StackLayout x:Name ="ConnexionForm" Orientation="Vertical" IsVisible="True">
             <Entry x:Name="identifiant" Placeholder="Identifiant" />
             <Entry x:Name="motDePasse" Placeholder="Mot de passe" />
             <StackLayout Orientation="Horizontal">
                 <Switch x:Name="memoriserInfos" HorizontalOptions="Start" IsToggled="True"/>
                 <Label Text="Mémoriser mes informations" VerticalTextAlignment="Center"/>
             </StackLayout>
-            <Button x:Name="seConnecter" Text="Se connecter"/>
+            <StackLayout Orientation="Horizontal">
+                <Label x:Name="ErrorLabel" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <Button x:Name="seConnecterBtn" Text="Se connecter"/>
 
         </StackLayout>
 
-        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <ScrollView x:Name ="Tweets" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="False">
             <StackLayout VerticalOptions="FillAndExpand" 
                          Orientation="Vertical">
                 
