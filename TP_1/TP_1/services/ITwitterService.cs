@@ -8,6 +8,6 @@ namespace TP_1.services
     {
         bool Authenticate(string identifiant, string password);
 
-        List<Tweet> GetTweets();
+        List<models.Tweet> GetTweets();
     }
 }

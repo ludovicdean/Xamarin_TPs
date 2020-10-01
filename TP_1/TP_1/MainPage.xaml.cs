@@ -23,6 +23,15 @@ namespace TP_1
         {
             InitializeComponent();
             this.seConnecterBtn.Clicked += SeConnecterBtn_Clicked;
+            LoadTweets();
+        }
+
+        private void LoadTweets()
+        {
+            foreach (var item in twitterService.GetTweets())
+            {
+                AfficherTweets.Children.Add(new TP_1.Tweet().LoadData(item));
+            }
         }
 
         private void SeConnecterBtn_Clicked(object sender, EventArgs e)
@@ -36,15 +45,11 @@ namespace TP_1
 
             Debug.WriteLine("Coucou");
 
-            
-
             if (String.IsNullOrEmpty(login) || login.Length < 3)
             {
                 haveError = true;
                 stringBuilder.Append("L'identifiant ne peut pas être vide et doit posséder au moins 3 caractères.");
-            }
-
-            if (String.IsNullOrEmpty(password) || password.Length < 6)
+            } else if (String.IsNullOrEmpty(password) || password.Length < 6)
             {
                 if (haveError)
                 {
@@ -52,7 +57,11 @@ namespace TP_1
                 }
                 haveError = true;
                 stringBuilder.Append("Le mot de passe ne peut pas être vide et doit posséder au moins 6 caractères.");
-            }
+            } else if (this.twitterService.Authenticate(login, password))
+                {
+                    this.ConnexionForm.IsVisible = false;
+                    this.Tweets.IsVisible = true;
+                }
 
             if (haveError)
             {
@@ -66,13 +75,7 @@ namespace TP_1
                 this.ConnexionForm.IsVisible = false;
                 this.Tweets.IsVisible = true;
             }
-            //-------------------------------------------------------------------------------------------------------
-            if(this.twitterService.Authenticate(login, password))
-            {
-                this.ConnexionForm.IsVisible = false;
-                this.Tweets.IsVisible = true;
-            }
-            //-------------------------------------------------------------------------------------------------------
+
             //throw new NotImplementedException();
         }
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TP_1.services
+namespace TP_1.models
 {
     public class Tweet
     {
