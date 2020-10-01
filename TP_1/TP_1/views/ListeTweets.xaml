@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:TP_1.views"
+             mc:Ignorable="d"
+             x:Class="TP_1.views.ListeTweets">
+    <ContentPage.Content>
+        <StackLayout>
+        <views:MenuHaut/>
+
+        <StackLayout>
+            <ListView x:Name="TweetsListe">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <StackLayout VerticalOptions="FillAndExpand" 
+                                             Orientation="Vertical">
+
+                                    <StackLayout VerticalOptions="Fill" 
+                                             Orientation="Horizontal" 
+                                             Padding="10">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75"/>
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Source="https://picsum.photos/50/50/?random" 
+                                               Aspect="AspectFit" 
+                                               Grid.Column="0" 
+                                               Grid.Row="0" 
+                                               Grid.RowSpan="2">
+                                            </Image>
+                                            <Label x:Name="TweetAuthor"
+                                               Grid.Column="1" Grid.Row="0" 
+                                               Text="{Binding NomUtilisateur}" />        
+                                            <Label x:Name="TweetText"
+                                               Grid.Column="1" 
+                                               Grid.Row="1" 
+                                               Text="{Binding Texte}}" />
+                                        </Grid>
+                                    </StackLayout>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <views:MenuBas/>
+        </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

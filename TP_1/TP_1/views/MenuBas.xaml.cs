@@ -3,24 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TP_1
+namespace TP_1.views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Tweet : ContentView
+    public partial class MenuBas : ContentView
     {
-        public Tweet()
+        public MenuBas()
         {
             InitializeComponent();
-        }
-
-        internal View LoadData(models.Tweet item)
-        {
-            TweetAuthor.Text = item.PseudoUtilisateur;
-            TweetText.Text = item.Texte;
-            return this;
         }
     }
 }

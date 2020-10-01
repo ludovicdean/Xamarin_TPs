@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TP_1.services;
+using TP_1.views;
 using Xamarin.Forms;
 
 namespace TP_1
@@ -23,16 +24,16 @@ namespace TP_1
         {
             InitializeComponent();
             this.seConnecterBtn.Clicked += SeConnecterBtn_Clicked;
-            LoadTweets();
+            //LoadTweets();
         }
 
-        private void LoadTweets()
-        {
-            foreach (var item in twitterService.GetTweets())
-            {
-                AfficherTweets.Children.Add(new TP_1.Tweet().LoadData(item));
-            }
-        }
+        //private void LoadTweets()
+        //{
+        //    foreach (var item in twitterService.GetTweets())
+        //    {
+        //        AfficherTweets.Children.Add(new TP_1.Tweet().LoadData(item));
+        //    }
+        //}
 
         private void SeConnecterBtn_Clicked(object sender, EventArgs e)
         {
@@ -69,8 +70,9 @@ namespace TP_1
                 if (this.twitterService.Authenticate(login, password))
                 {
                     testInternet = true;
-                    this.ConnexionForm.IsVisible = false;
-                    this.Tweets.IsVisible = true;
+                    //this.ConnexionForm.IsVisible = false;
+                    //this.Tweets.IsVisible = true;
+                    Navigation.PushAsync(new ListeTweets());
                 }
                 else
                 {
@@ -94,11 +96,11 @@ namespace TP_1
 
             result = !haveError;
 
-            if (result)
-            {
-                this.ConnexionForm.IsVisible = false;
-                this.Tweets.IsVisible = true;
-            }
+            //if (result)
+            //{
+            //    this.ConnexionForm.IsVisible = false;
+            //    this.Tweets.IsVisible = true;
+            //}
 
             //throw new NotImplementedException();
         }

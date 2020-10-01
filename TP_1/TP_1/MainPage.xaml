@@ -3,33 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:views="clr-namespace:TP_1.views"
              mc:Ignorable="d"
              x:Class="TP_1.MainPage">
 
     <StackLayout>
 
-        
-        
-        <StackLayout Orientation="Horizontal" 
-                     BackgroundColor="#58B0F0" Padding="25,10">
-            <ImageButton Source="pencil.png" 
-                         WidthRequest="25"
-                         HorizontalOptions="StartAndExpand" />
-            <Label Text="Accueil"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   HorizontalOptions="CenterAndExpand" />
-            <ImageButton Source="search.png"  
-                         WidthRequest="25"
-                         HorizontalOptions="EndAndExpand" />
-        </StackLayout>
-        
-        <StackLayout Orientation="Horizontal" 
-                     VerticalOptions="Center" 
-                     HorizontalOptions="CenterAndExpand">
-            <Label Text="Connexion à Twitter"></Label>
-        </StackLayout>
-        
+        <views:MenuHaut/>
+
         <StackLayout x:Name ="ConnexionForm" Orientation="Vertical" IsVisible="True">
             <Entry x:Name="identifiant" 
                    Placeholder="Identifiant" />
@@ -57,30 +38,19 @@
             <StackLayout x:Name="AfficherTweets" 
                         VerticalOptions="FillAndExpand" 
                          Orientation="Vertical">
-                
 
+                <StackLayout Orientation="Horizontal" 
+                     VerticalOptions="Center" 
+                     HorizontalOptions="CenterAndExpand">
+                    <Label Text="Connexion à Twitter"></Label>
+                </StackLayout>
 
             </StackLayout>
 
         </ScrollView>
 
-
-        <StackLayout Orientation="Horizontal" 
-                     HeightRequest="75" 
-                     Padding="10,0" >
-            <Label Text="Fil" 
-                   HorizontalOptions="StartAndExpand" 
-                   VerticalTextAlignment="Center"/>
-            <Label Text="Notifications" 
-               HorizontalOptions="CenterAndExpand" 
-                   VerticalTextAlignment="Center"/>
-            <Label Text="Messages" 
-                   HorizontalOptions="EndAndExpand" 
-                   VerticalTextAlignment="Center"/>
-            <Label Text="Moi" 
-               HorizontalOptions="EndAndExpand" 
-               VerticalTextAlignment="Center"/>
-        </StackLayout>
+        <views:MenuBas/>
+        
         
     </StackLayout>
 

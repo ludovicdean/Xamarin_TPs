@@ -22,8 +22,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Tweet.xaml">
+    <EmbeddedResource Update="views\ListeTweets.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="views\MenuBas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="views\MenuHaut.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="tweet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="views\ListeTweets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="views\MenuBas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="views\MenuHaut.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>
