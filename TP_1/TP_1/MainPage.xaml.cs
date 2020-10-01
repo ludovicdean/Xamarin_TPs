@@ -41,15 +41,20 @@ namespace TP_1
             String password = this.motDePasse.Text;
             Boolean isRemind = this.memoriserInfos.IsToggled;
             bool haveError = false;
+            bool testAuth = false;
+            bool testInternet = false;
             StringBuilder stringBuilder = new StringBuilder();
 
             Debug.WriteLine("Coucou");
+
 
             if (String.IsNullOrEmpty(login) || login.Length < 3)
             {
                 haveError = true;
                 stringBuilder.Append("L'identifiant ne peut pas être vide et doit posséder au moins 3 caractères.");
-            } else if (String.IsNullOrEmpty(password) || password.Length < 6)
+            }
+
+            if (String.IsNullOrEmpty(password) || password.Length < 6)
             {
                 if (haveError)
                 {
@@ -57,11 +62,30 @@ namespace TP_1
                 }
                 haveError = true;
                 stringBuilder.Append("Le mot de passe ne peut pas être vide et doit posséder au moins 6 caractères.");
-            } else if (this.twitterService.Authenticate(login, password))
+            }
+            
+            if (Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.Internet)
+            {
+                if (this.twitterService.Authenticate(login, password))
                 {
+                    testInternet = true;
                     this.ConnexionForm.IsVisible = false;
                     this.Tweets.IsVisible = true;
                 }
+                else
+                {
+                    stringBuilder.Append("Mot de passe et/ou identifiant invalide(s)");
+                }
+            }
+            else
+            {
+                if (!haveError || !testAuth)
+                {
+                    stringBuilder.Append("\n");
+                }
+                stringBuilder.Append("Pas de connexion internet disponible !");
+                testInternet = false;
+            }
 
             if (haveError)
             {

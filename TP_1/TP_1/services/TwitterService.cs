@@ -8,14 +8,15 @@ namespace TP_1.services
     {
         public bool Authenticate(string identifiant, string password)
         {
-             if(identifiant.Equals("Canards") && password.Equals("CoinCoin"))
-            {
-                return true;
-            } else
+             
+            
+            if(string.IsNullOrEmpty(identifiant) || string.IsNullOrEmpty(password) || !identifiant.Equals("Canards") || !password.Equals("CoinCoin"))
             {
                 return false;
+            } else
+            {
+                return true;
             }
-            throw new NotImplementedException();
         }
 
         public List<models.Tweet> GetTweets()
